@@ -14,13 +14,13 @@ type CardProps = {
 export const Card = ({ name, phone, email, image, isFavorite }: CardProps) => {
   return (
     <article className="card">
-      {/* <div className="card__header">
+      <div className="card__header">
         <img className="card__image" src={image.url} alt={image.alt} />
-      </div> */}
+      </div>
       <div className="card__body">
         <h1 className="card__title">{name}</h1>
-        {/* <p className="card__subtitle">{phone}</p>
-        <p className="card__subtitle">{email}</p> */}
+        <p className="card__subtitle">{phone}</p>
+        <p className="card__subtitle">{email}</p>
       </div>
       {/* <div className="card__footer"></div> */}
     </article>

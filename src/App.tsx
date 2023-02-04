@@ -8,7 +8,7 @@ function App() {
         name="Osa"
         phone="999444222"
         email="gonzalovidal.dev@gmail.com"
-        image={{ url: '', alt: 'Foto de osa' }}
+        image={{ url: 'https://i.postimg.cc/LX35wnZZ/osa.png', alt: 'Foto de osa' }}
         isFavorite={false}
       />
     </div>
