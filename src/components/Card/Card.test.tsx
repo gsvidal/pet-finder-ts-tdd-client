@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Card } from './Card';
 
 type ImageObj = {
@@ -45,5 +46,44 @@ describe('Card', () => {
     render(<Card {...cardProps} />);
     const imageElement: HTMLImageElement = screen.getByRole('img', { name: /foto de osa/i });
     expect(imageElement.src).toBe(cardProps.image.url);
+  });
+
+  test('should show outlined heart icon', () => {
+    render(<Card {...cardProps} />);
+
+    const outlinedHeartIconElement: HTMLImageElement = screen.getByAltText(/outlined heart/i);
+    const filledHeartIconElement: HTMLImageElement | null = screen.queryByAltText(/outlined heart/i);
+
+    expect(outlinedHeartIconElement).toBeInTheDocument();
+    expect(filledHeartIconElement).not.toBeInTheDocument();
+  });
+
+  test('should show filled heart icon', () => {
+    render(<Card {...cardProps} isFavorite={true} />);
+
+    const filledHeartIconElement: HTMLImageElement = screen.getByAltText(/filled heart/i);
+    const outlinedHeartIconElement: HTMLImageElement | null = screen.queryByAltText(/outlined heart/i);
+
+    expect(filledHeartIconElement).toBeInTheDocument();
+    expect(outlinedHeartIconElement).not.toBeInTheDocument();
+  });
+
+  test('should toggle outlined to filled heart icon', () => {
+    render(<Card {...cardProps} />);
+
+    const outlinedHeartIconElement: HTMLImageElement = screen.getByAltText(/outlined heart/i);
+    const filledHeartIconElement: HTMLImageElement | null = screen.queryByAltText(/outlined heart/i);
+    const heartIconButtonElement: HTMLButtonElement = screen.getByRole('button');
+
+    expect(outlinedHeartIconElement).toBeInTheDocument();
+    expect(filledHeartIconElement).not.toBeInTheDocument();
+
+    userEvent.click(heartIconButtonElement);
+
+    const filledHeartIconElementAfterClick: HTMLImageElement = screen.getByAltText(/filled heart/i);
+    const outlinedHeartIconElementAfterClick: HTMLImageElement | null = screen.queryByAltText(/outlined heart/i);
+
+    expect(filledHeartIconElementAfterClick).toBeInTheDocument();
+    expect(outlinedHeartIconElementAfterClick).not.toBeInTheDocument();
   });
 });

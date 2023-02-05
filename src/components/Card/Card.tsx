@@ -1,3 +1,5 @@
+import './Card.style.css';
+
 type ImageObj = {
   url: string;
   alt: string;
@@ -18,7 +20,7 @@ export const Card = ({ name, phone, email, image, isFavorite }: CardProps) => {
         <img className="card__image" src={image.url} alt={image.alt} />
       </div>
       <div className="card__body">
-        <h1 className="card__title">{name}</h1>
+        <h2 className="card__title">{name}</h2>
         <p className="card__subtitle">{phone}</p>
         <p className="card__subtitle">{email}</p>
       </div>
