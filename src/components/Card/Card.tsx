@@ -1,4 +1,7 @@
 import './Card.style.css';
+import outlinedHeartIcon from '../../assets/icons/heartOutlined.svg';
+import filledHeartIcon from '../../assets/icons/heartFilled.svg';
+import { useState, MouseEvent } from 'react';
 
 type ImageObj = {
   url: string;
@@ -14,10 +17,22 @@ type CardProps = {
 };
 
 export const Card = ({ name, phone, email, image, isFavorite }: CardProps) => {
+  const [isHeartFavorite, setIsHeartFavorite] = useState<boolean>(isFavorite);
+
+  const toggleHeartFavorite: (event: MouseEvent<HTMLButtonElement>) => void = (event) => {
+    setIsHeartFavorite((isHeartFavorite) => !isHeartFavorite);
+  };
   return (
     <article className="card">
       <div className="card__header">
         <img className="card__image" src={image.url} alt={image.alt} />
+        <button className="heart" onClick={toggleHeartFavorite}>
+          {isHeartFavorite ? (
+            <img src={filledHeartIcon} alt="filled heart" />
+          ) : (
+            <img src={outlinedHeartIcon} alt="outlined heart" />
+          )}
+        </button>
       </div>
       <div className="card__body">
         <h2 className="card__title">{name}</h2>

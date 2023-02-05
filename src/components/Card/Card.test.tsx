@@ -52,7 +52,7 @@ describe('Card', () => {
     render(<Card {...cardProps} />);
 
     const outlinedHeartIconElement: HTMLImageElement = screen.getByAltText(/outlined heart/i);
-    const filledHeartIconElement: HTMLImageElement | null = screen.queryByAltText(/outlined heart/i);
+    const filledHeartIconElement: HTMLImageElement | null = screen.queryByAltText(/filled heart/i);
 
     expect(outlinedHeartIconElement).toBeInTheDocument();
     expect(filledHeartIconElement).not.toBeInTheDocument();
@@ -72,7 +72,7 @@ describe('Card', () => {
     render(<Card {...cardProps} />);
 
     const outlinedHeartIconElement: HTMLImageElement = screen.getByAltText(/outlined heart/i);
-    const filledHeartIconElement: HTMLImageElement | null = screen.queryByAltText(/outlined heart/i);
+    const filledHeartIconElement: HTMLImageElement | null = screen.queryByAltText(/filled heart/i);
     const heartIconButtonElement: HTMLButtonElement = screen.getByRole('button');
 
     expect(outlinedHeartIconElement).toBeInTheDocument();
