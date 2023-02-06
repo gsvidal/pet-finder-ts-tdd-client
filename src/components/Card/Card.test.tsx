@@ -7,20 +7,26 @@ type ImageObj = {
   alt: string;
 };
 
-type CardPropsObj = {
+export type CardPropsObj = {
+  id: number;
   name: string;
   phone: string;
   email: string;
   image: ImageObj;
   isFavorite: boolean;
+  color: string;
+  gender: string;
 };
 
 const cardProps: CardPropsObj = {
+  id: 1,
   name: 'osa',
   phone: '999444222',
   email: 'gonzalovidal.dev@gmail.com',
   image: { url: 'https://i.postimg.cc/LX35wnZZ/osa.png', alt: 'Foto de osa' },
   isFavorite: false,
+  color: 'beige',
+  gender: 'female',
 };
 
 describe('Card', () => {

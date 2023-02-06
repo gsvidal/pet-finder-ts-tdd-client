@@ -1,16 +1,11 @@
-import './App.scss';
-import { Card } from './components/Card/Card';
+import './App.style.scss';
+import { Cards } from './components/Cards/Cards';
+import { pets } from './mocks/pets';
 
 function App() {
   return (
     <div className="App">
-      <Card
-        name="Osa"
-        phone="999444222"
-        email="gonzalovidal.dev@gmail.com"
-        image={{ url: 'https://i.postimg.cc/LX35wnZZ/osa.png', alt: 'Foto de osa' }}
-        isFavorite={false}
-      />
+      <Cards pets={pets} />
     </div>
   );
 }

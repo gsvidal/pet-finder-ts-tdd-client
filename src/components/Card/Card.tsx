@@ -8,15 +8,19 @@ type ImageObj = {
   alt: string;
 };
 
-type CardProps = {
+export type CardProps = {
+  id: number;
   name: string;
   phone: string;
   email: string;
   image: ImageObj;
   isFavorite: boolean;
+  color: string;
+  gender: string;
 };
 
 export const Card = ({ name, phone, email, image, isFavorite }: CardProps) => {
+  // const { name, phone, email, image, isFavorite } = pet;
   const [isHeartFavorite, setIsHeartFavorite] = useState<boolean>(isFavorite);
 
   const toggleHeartFavorite: (event: MouseEvent<HTMLButtonElement>) => void = (event) => {
