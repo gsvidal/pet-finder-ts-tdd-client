@@ -17,10 +17,10 @@ export type CardProps = {
   isFavorite: boolean;
   color: string;
   gender: string;
+  animalType: string;
 };
 
-export const Card = ({ name, phone, email, image, isFavorite }: CardProps) => {
-  // const { name, phone, email, image, isFavorite } = pet;
+export const Card = ({ name, phone, email, image, isFavorite }: CardProps): JSX.Element => {
   const [isHeartFavorite, setIsHeartFavorite] = useState<boolean>(isFavorite);
 
   const toggleHeartFavorite: (event: MouseEvent<HTMLButtonElement>) => void = (event) => {

@@ -1,24 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Card } from './Card';
+import { CardProps } from './Card';
 
-type ImageObj = {
-  url: string;
-  alt: string;
-};
-
-export type CardPropsObj = {
-  id: number;
-  name: string;
-  phone: string;
-  email: string;
-  image: ImageObj;
-  isFavorite: boolean;
-  color: string;
-  gender: string;
-};
-
-const cardProps: CardPropsObj = {
+const cardProps: CardProps = {
   id: 1,
   name: 'osa',
   phone: '999444222',
@@ -27,6 +12,7 @@ const cardProps: CardPropsObj = {
   isFavorite: false,
   color: 'beige',
   gender: 'female',
+  animalType: 'dog',
 };
 
 describe('Card', () => {

@@ -1,3 +1,36 @@
 .App {
   text-align: center;
 }
+
+.app-bg {
+  width: 100vw;
+  height: 150vh;
+  position: absolute;
+  z-index: -1;
+  background: url('./assets/icons/bg-dog.svg') center/25%;
+  background-repeat: repeat;
+  opacity: 0.05;
+}
+
+.app-title {
+  font-size: 2rem;
+  padding: 35px 0 15px 0;
+  color: #1b006c;
+  text-shadow: 1px 1px 5px #59439c;
+  @media (min-width: 550px) {
+    font-size: 3rem;
+    padding: 35px 0;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: 550px) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+  }
+}

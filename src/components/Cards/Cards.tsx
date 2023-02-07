@@ -6,7 +6,7 @@ type CardsProps = {
   pets: CardProps[];
 };
 
-export const Cards = ({ pets }: CardsProps) => {
+export const Cards = ({ pets }: CardsProps): JSX.Element => {
   return (
     <div className="cards">
       {pets.map((pet: CardProps) => (

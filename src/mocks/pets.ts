@@ -13,6 +13,7 @@ export const pets: CardProps[] = [
     isFavorite: true,
     color: 'gold',
     gender: 'female',
+    animalType: 'dog',
   },
   {
     id: 2,
@@ -26,6 +27,7 @@ export const pets: CardProps[] = [
     isFavorite: false,
     color: 'gold',
     gender: 'male',
+    animalType: 'dog',
   },
   {
     id: 3,
@@ -39,6 +41,7 @@ export const pets: CardProps[] = [
     isFavorite: false,
     color: 'white',
     gender: 'female',
+    animalType: 'dog',
   },
   {
     id: 4,
@@ -52,6 +55,7 @@ export const pets: CardProps[] = [
     isFavorite: false,
     color: 'grey',
     gender: 'male',
+    animalType: 'cat',
   },
   {
     id: 5,
@@ -65,5 +69,6 @@ export const pets: CardProps[] = [
     isFavorite: false,
     color: 'white',
     gender: 'female',
+    animalType: 'cat',
   },
 ];
