@@ -2,7 +2,7 @@ import './Filter.style.scss';
 
 // interface FilterProps {}
 
-const Filter = (): JSX.Element => {
+export const Filter = (): JSX.Element => {
   return (
     <section className="filter">
       <h2 className="filter__title">Filter by:</h2>
@@ -35,5 +35,3 @@ const Filter = (): JSX.Element => {
     </section>
   );
 };
-
-export default Filter;
