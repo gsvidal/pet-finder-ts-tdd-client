@@ -24,7 +24,7 @@ export const pets: CardProps[] = [
       url: 'https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGRvZ3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
       alt: 'beautiful cat',
     },
-    isFavorite: false,
+    isFavorite: true,
     color: 'gold',
     gender: 'male',
     animalType: 'dog',

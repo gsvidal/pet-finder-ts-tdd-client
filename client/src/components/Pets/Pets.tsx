@@ -13,18 +13,22 @@ type Response = {
 
 export const Pets = (): JSX.Element => {
   const [pets, setPets] = useState<PetsType>([] as PetsType);
+  const [filteredPets, setFilteredPets] = useState<PetsType>([] as PetsType);
+
   const fetchPets = async (): Promise<void> => {
     const response: Response = await axios.get('http://localhost:4000/pets');
     setPets(response.data);
+    setFilteredPets(response.data);
   };
 
   useEffect(() => {
     fetchPets();
   }, []);
+
   return (
     <section className="main">
-      <Filter />
-      <Cards pets={pets} />
+      <Filter pets={pets} setFilteredPets={setFilteredPets} />
+      <Cards pets={pets} filteredPets={filteredPets} setPets={setPets} />
     </section>
   );
 };

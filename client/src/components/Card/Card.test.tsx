@@ -3,6 +3,8 @@ import userEvent from '@testing-library/user-event';
 import { Card } from './Card';
 import { CardProps } from './Card';
 
+const mockFn = jest.fn();
+
 const cardProps: CardProps = {
   id: 1,
   name: 'osa',
@@ -13,6 +15,7 @@ const cardProps: CardProps = {
   color: 'beige',
   gender: 'female',
   animalType: 'dog',
+  updateFavorite: mockFn,
 };
 
 describe('Card', () => {

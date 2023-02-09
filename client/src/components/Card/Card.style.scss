@@ -1,11 +1,14 @@
 .card {
-  max-width: 15rem;
-  width: 100%;
+  width: 180px;
+  min-width: 180px;
   text-align: center;
   background-color: white;
-  margin: 1rem;
+  margin: 10px;
   border-radius: 7px;
   box-shadow: 0.1rem 0.1rem 1rem rgba(29, 9, 88, 0.408);
+  @media (min-width: 320px) {
+    width: 240px;
+  }
   @media (min-width: 550px) {
     margin: 2rem;
   }
@@ -34,6 +37,7 @@
 
   &__subtitle {
     margin: 9px 0;
+    word-break: break-all;
   }
 }
 
