@@ -1,11 +1,6 @@
 import './Filter.style.scss';
-import { CardProps } from '../Card/Card';
-import { ChangeEvent, useEffect, useState } from 'react';
-
-interface FilterProps {
-  pets: CardProps[];
-  setFilteredPets: (pets: CardProps[]) => void;
-}
+import { ChangeEvent, useContext, useEffect, useState } from 'react';
+import { PetsContext } from '../../context/PetsContext';
 
 interface SelectValueObj {
   favorite: string;
@@ -13,7 +8,8 @@ interface SelectValueObj {
   'animal-type': string;
 }
 
-export const Filter = ({ pets, setFilteredPets }: FilterProps): JSX.Element => {
+export const Filter = (): JSX.Element => {
+  const { pets, setFilteredPets } = useContext(PetsContext);
   const [selectValue, setSelectValue] = useState<SelectValueObj>({
     favorite: 'any',
     gender: 'any',

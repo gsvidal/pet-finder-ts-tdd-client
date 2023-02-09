@@ -1,13 +1,15 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Filter } from './Filter';
-import { pets as petsMock } from '../../mocks/pets';
-
-const mockFn = jest.fn();
+import { PetsContextProviderMock } from '../setupTest';
 
 describe('<Filter />', () => {
   beforeEach(() => {
-    render(<Filter pets={petsMock} setFilteredPets={mockFn} />);
+    render(
+      <PetsContextProviderMock>
+        <Filter />
+      </PetsContextProviderMock>
+    );
   });
   test('should show correct title', () => {
     const titleElement = screen.getByRole('heading', { name: /filter by:/i });

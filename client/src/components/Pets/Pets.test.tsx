@@ -5,6 +5,7 @@ import { setupServer } from 'msw/node';
 import { pets as petsMock } from '../../mocks/pets';
 import { CardProps } from '../Card/Card';
 import userEvent from '@testing-library/user-event';
+import { PetsContextProviderMock } from '../setupTest';
 
 type Response = CardProps[];
 
@@ -14,8 +15,38 @@ const server = setupServer(
   })
 );
 
-beforeEach(() => {
-  render(<Pets />);
+type SelectFiltersObj = {
+  favorite?: string;
+  gender?: string;
+  animalType?: string;
+};
+
+const selectFiltersReturningCards = async ({ favorite, gender, animalType }: SelectFiltersObj) => {
+  const cards: HTMLElement[] = await screen.findAllByRole('article');
+
+  const selectFavoriteElement: HTMLSelectElement = screen.getByLabelText(/favorite/i);
+  const selectGenderElement: HTMLSelectElement = screen.getByLabelText(/gender/i);
+  const selectAnimalTypeElement: HTMLSelectElement = screen.getByLabelText(/woof or miau?/i);
+
+  if (favorite !== undefined) {
+    userEvent.selectOptions(selectFavoriteElement, favorite);
+  }
+  if (gender !== undefined) {
+    userEvent.selectOptions(selectGenderElement, gender);
+  }
+  if (animalType !== undefined) {
+    userEvent.selectOptions(selectAnimalTypeElement, animalType);
+  }
+
+  return cards;
+};
+
+beforeEach(async () => {
+  render(
+    <PetsContextProviderMock>
+      <Pets />
+    </PetsContextProviderMock>
+  );
 });
 beforeAll(() => {
   server.listen();
@@ -35,9 +66,9 @@ describe('Pets', () => {
   // Integration tests:
   // favorite filter
   test('should filter for male pets when click male on gender select', async () => {
-    const cards: HTMLElement[] = await screen.findAllByRole('article');
-    const selectGenderElement: HTMLSelectElement = screen.getByLabelText(/gender/i);
-    userEvent.selectOptions(selectGenderElement, 'male');
+    // const selectGenderElement: HTMLSelectElement = screen.getByLabelText(/gender/i);
+    // userEvent.selectOptions(selectGenderElement, 'male');
+    const cards: HTMLElement[] = await selectFiltersReturningCards({ gender: 'male' });
     const maleCards: HTMLElement[] = screen.getAllByRole('article');
     expect(maleCards).toStrictEqual([cards[1], cards[3]]);
   });

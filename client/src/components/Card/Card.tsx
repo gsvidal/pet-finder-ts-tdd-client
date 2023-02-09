@@ -1,7 +1,8 @@
 import './Card.style.scss';
 import outlinedHeartIcon from '../../assets/icons/heartOutlined.svg';
 import filledHeartIcon from '../../assets/icons/heartFilled.svg';
-import { useState, MouseEvent } from 'react';
+import { useState, MouseEvent, useContext } from 'react';
+import { PetsContext } from '../../context/PetsContext';
 
 type ImageObj = {
   url: string;
@@ -18,14 +19,14 @@ export type CardProps = {
   color: string;
   gender: string;
   animalType: string;
-  updateFavorite?: (id: number, isFavoriteUpdate: boolean) => void;
 };
 
-export const Card = ({ id, name, phone, email, image, isFavorite, updateFavorite }: CardProps): JSX.Element => {
+export const Card = ({ id, name, phone, email, image, isFavorite }: CardProps): JSX.Element => {
   const [isHeartFavorite, setIsHeartFavorite] = useState<boolean>(isFavorite);
+  const { updateFavorite } = useContext(PetsContext);
 
   const toggleHeartFavorite: (event: MouseEvent<HTMLButtonElement>) => void = (event) => {
-    updateFavorite!(id, !isHeartFavorite);
+    updateFavorite(id, !isHeartFavorite);
     setIsHeartFavorite((isHeartFavorite) => !isHeartFavorite);
   };
   return (

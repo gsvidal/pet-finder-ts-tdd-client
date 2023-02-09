@@ -1,9 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { PetsContextProviderMock } from '../setupTest';
 import { Card } from './Card';
 import { CardProps } from './Card';
-
-const mockFn = jest.fn();
 
 const cardProps: CardProps = {
   id: 1,
@@ -15,8 +14,9 @@ const cardProps: CardProps = {
   color: 'beige',
   gender: 'female',
   animalType: 'dog',
-  updateFavorite: mockFn,
 };
+
+beforeEach(() => {});
 
 describe('Card', () => {
   test("should show pet's name", () => {
@@ -64,7 +64,11 @@ describe('Card', () => {
   });
 
   test('should toggle outlined to filled heart icon', () => {
-    render(<Card {...cardProps} />);
+    render(
+      <PetsContextProviderMock>
+        <Card {...cardProps} />
+      </PetsContextProviderMock>
+    );
 
     const outlinedHeartIconElement: HTMLImageElement = screen.getByAltText(/outlined heart/i);
     const filledHeartIconElement: HTMLImageElement | null = screen.queryByAltText(/filled heart/i);
@@ -74,6 +78,8 @@ describe('Card', () => {
     expect(filledHeartIconElement).not.toBeInTheDocument();
 
     userEvent.click(heartIconButtonElement);
+
+    // render(<Card {...cardProps} isFavorite={true} />);
 
     const filledHeartIconElementAfterClick: HTMLImageElement = screen.getByAltText(/filled heart/i);
     const outlinedHeartIconElementAfterClick: HTMLImageElement | null = screen.queryByAltText(/outlined heart/i);
