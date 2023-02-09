@@ -35,14 +35,14 @@ describe('<Filter />', () => {
     expect(selectElement.value).toBe('male');
   });
 
-  // test('should show dog or cat after select an option', () => {
-  //   const selectElement: HTMLSelectElement = screen.getByLabelText(/woof or miau?/i);
-  //   expect(selectElement.value).toBe('any');
+  test('should show dog or cat after select an option', () => {
+    const selectElement: HTMLSelectElement = screen.getByLabelText(/woof or miau?/i);
+    expect(selectElement.value).toBe('any');
 
-  //   userEvent.selectOptions(selectElement, 'dog');
-  //   expect(selectElement.value).toBe('dog');
+    userEvent.selectOptions(selectElement, 'dog');
+    expect(selectElement.value).toBe('dog');
 
-  //   userEvent.selectOptions(selectElement, 'cat');
-  //   expect(selectElement.value).toBe('cat');
-  // });
+    userEvent.selectOptions(selectElement, 'cat');
+    expect(selectElement.value).toBe('cat');
+  });
 });

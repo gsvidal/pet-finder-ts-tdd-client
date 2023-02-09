@@ -10,12 +10,14 @@ interface FilterProps {
 interface SelectValueObj {
   favorite: string;
   gender: string;
+  'animal-type': string;
 }
 
 export const Filter = ({ pets, setFilteredPets }: FilterProps): JSX.Element => {
   const [selectValue, setSelectValue] = useState<SelectValueObj>({
     favorite: 'any',
     gender: 'any',
+    'animal-type': 'any',
   });
   const handleSelect = (event: ChangeEvent<HTMLSelectElement>) => {
     setSelectValue({
@@ -32,6 +34,9 @@ export const Filter = ({ pets, setFilteredPets }: FilterProps): JSX.Element => {
     }
     if (selectValue.gender !== 'any') {
       filtered = filtered.filter((pet) => pet.gender === selectValue.gender);
+    }
+    if (selectValue['animal-type'] !== 'any') {
+      filtered = filtered.filter((pet) => pet.animalType === selectValue['animal-type']);
     }
 
     setFilteredPets(filtered);
@@ -57,14 +62,14 @@ export const Filter = ({ pets, setFilteredPets }: FilterProps): JSX.Element => {
             <option value="male">Male</option>
           </select>
         </div>
-        {/* <div className="select-container select-container--animal-type">
+        <div className="select-container select-container--animal-type">
           <label htmlFor="animal-type">Woof or miau?</label>
-          <select name="animal-type" id="animal-type">
+          <select name="animal-type" id="animal-type" onChange={handleSelect}>
             <option value="any">Any</option>
             <option value="dog">Dog</option>
             <option value="cat">Cat</option>
           </select>
-        </div> */}
+        </div>
       </div>
     </section>
   );

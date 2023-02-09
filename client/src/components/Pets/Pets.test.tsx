@@ -32,7 +32,8 @@ describe('Pets', () => {
     const cards: HTMLElement[] = await screen.findAllByRole('article');
     expect(cards.length).toBe(5);
   });
-
+  // Integration tests:
+  // favorite filter
   test('should filter for male pets when click male on gender select', async () => {
     const cards: HTMLElement[] = await screen.findAllByRole('article');
     const selectGenderElement: HTMLSelectElement = screen.getByLabelText(/gender/i);
@@ -48,7 +49,7 @@ describe('Pets', () => {
     const femaleCards: HTMLElement[] = screen.getAllByRole('article');
     expect(femaleCards).toStrictEqual([cards[0], cards[2], cards[4]]);
   });
-
+  // gender filter
   test('should filter for favorite pets when click favorite on favorite select', async () => {
     const cards: HTMLElement[] = await screen.findAllByRole('article');
     const selectFavoriteElement: HTMLSelectElement = screen.getByLabelText(/favorite/i);
@@ -66,7 +67,28 @@ describe('Pets', () => {
     const notFavoriteCards: HTMLElement[] = screen.getAllByRole('article');
     expect(notFavoriteCards).toStrictEqual([cards[2], cards[3], cards[4]]);
   });
+  // animal type filter
+  test('should filter for dog type when click dog on animal-type select', async () => {
+    const cards: HTMLElement[] = await screen.findAllByRole('article');
 
+    const selectAnimalTypeElement: HTMLSelectElement = screen.getByLabelText(/woof or miau?/i);
+    userEvent.selectOptions(selectAnimalTypeElement, 'dog');
+
+    const dogCards: HTMLElement[] = screen.getAllByRole('article');
+    expect(dogCards).toStrictEqual([cards[0], cards[1], cards[2]]);
+  });
+
+  test('should filter for dog type when click dog on animal-type select', async () => {
+    const cards: HTMLElement[] = await screen.findAllByRole('article');
+
+    const selectAnimalTypeElement: HTMLSelectElement = screen.getByLabelText(/woof or miau?/i);
+    userEvent.selectOptions(selectAnimalTypeElement, 'cat');
+
+    const catCards: HTMLElement[] = screen.getAllByRole('article');
+    expect(catCards).toStrictEqual([cards[3], cards[4]]);
+  });
+
+  //favorite + gender filters + click on cards
   test('should filter for favorite and female pets when click favorite on favorite select and click female on gender select', async () => {
     const cards: HTMLElement[] = await screen.findAllByRole('article');
 
@@ -171,5 +193,23 @@ describe('Pets', () => {
 
     const notFavoritMaleCards = screen.queryAllByRole('article');
     expect(notFavoritMaleCards.length).toBe(0);
+  });
+
+  test('when first clicking heart button on Felix(first not favorite, female, cat) should show favorite female cat card after selecting favorite, female and cat selects', async () => {
+    const cards: HTMLElement[] = await screen.findAllByRole('article');
+    const selectFavoriteElement: HTMLSelectElement = screen.getByLabelText(/favorite/i);
+    const selectGenderElement: HTMLSelectElement = screen.getByLabelText(/gender/i);
+    const selectAnimalTypeElement: HTMLSelectElement = screen.getByLabelText(/woof or miau?/i);
+
+    const notFavoriteFemaleCatCard = cards[4];
+    const notFavoriteFemaleCatCardButton: HTMLButtonElement = within(notFavoriteFemaleCatCard).getByRole('button');
+    userEvent.click(notFavoriteFemaleCatCardButton);
+
+    userEvent.selectOptions(selectFavoriteElement, 'favorite');
+    userEvent.selectOptions(selectGenderElement, 'female');
+    userEvent.selectOptions(selectAnimalTypeElement, 'cat');
+
+    const favoriteFemaleCatCard = screen.getByRole('article');
+    expect(favoriteFemaleCatCard).toBeInTheDocument();
   });
 });
