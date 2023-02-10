@@ -1,46 +1,58 @@
-# Getting Started with Create React App
+# Pet Adoption Center App (Frontend)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### In case you want to [checkout the Pet Adoption Center (Backend)](https://github.com/gsvidal/pet-finder-ts-tdd-server)
 
-## Available Scripts
+<a href="">
+  <img src="" width="700">
+</a> 
 
-In the project directory, you can run:
+### An app where users can like and filter pet cards according to their favorite, gender, or animal type status.
+<br />
 
-### `npm start`
+## Main features:
+- Users can like or disliked one or many pet cards.
+- Users can filter depending on pet cards favorite, gender or animal type status.
+<br />
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Tech Stack:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg" alt="html5 Logo" width="50" height="50"/> <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-original.svg" alt="css3 Logo" width="50" height="50"/>
+<img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg" alt="react Logo" width="50" height="50"/>
+<img src="https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg" alt="Javascript Logo" width="50" height="50"/>
+<img src="https://github.com/devicons/devicon/blob/master/icons/jest/jest-plain.svg" alt="Jest Logo" width="50" height="50"/>
+<img src="https://testing-library.com/img/octopus-64x64.png" alt="React Testing Library Logo" width="50" height="50"/>
+<img src="https://github.com/devicons/devicon/blob/master/icons/sass/sass-original.svg" alt="Sass Logo" width="50" height="50"/>
+<img src="https://github.com/devicons/devicon/blob/master/icons/npm/npm-original-wordmark.svg" alt="npm Logo" width="50" height="50"/>
+<img src="https://railway.app/brand/logotype-light.svg" alt="Railway Logo" width="100" height="50"/>
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br />
 
-### `npm run build`
+## Tech Features: 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Fullstack App (Node JS + Express)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- React + TypeScript. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Unit and Integration Testing (Test Driven Development).
 
-### `npm run eject`
+- Jest + React Testing Library. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Context API
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Axios & Mock Service Worker (MSW)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Responsive design.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Deployed with Railway.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<br />
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Instalation and setup:
+
+- Git clone the project: `git@github.com:gsvidal/pet-finder-ts-tdd-client.git`
+
+- Run `npm install` or `yarn add` to download and install all the dependencies.
+
+- At main branch: Run `npm run start` to start dev server
