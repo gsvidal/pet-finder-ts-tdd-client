@@ -9,9 +9,11 @@ export const Cards = (): JSX.Element => {
 
   return (
     <div className="cards">
-      {filteredPets.map((pet: CardProps) => (
-        <Card {...pet} key={pet.id} />
-      ))}
+      {filteredPets.length !== 0 ? (
+        filteredPets.map((pet: CardProps) => <Card {...pet} key={pet.id} />)
+      ) : (
+        <p className="empty">Not pets found with current filters</p>
+      )}
     </div>
   );
 };
