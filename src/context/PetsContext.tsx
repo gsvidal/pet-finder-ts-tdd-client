@@ -27,7 +27,7 @@ export const PetsContextProvider = ({ children }: PetsContextProviderProps) => {
   const [filteredPets, setFilteredPets] = useState<PetsType>([] as PetsType);
 
   const fetchPets = async (): Promise<void> => {
-    const response: Response = await axios.get('http://localhost:4000/pets');
+    const response: Response = await axios.get('https://pet-finder-ts-tdd-server-production.up.railway.app/pets');
     setPets(response.data);
     setFilteredPets(response.data);
   };
