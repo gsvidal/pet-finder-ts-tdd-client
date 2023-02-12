@@ -14,6 +14,7 @@ export type PetsContextObj = {
   setPets: (pets: CardProps[]) => void;
   setFilteredPets: (pets: CardProps[]) => void;
   updateFavorite: (id: number, isFavoriteUpdate: boolean) => void;
+  isLoading: boolean;
 };
 
 export const PetsContext = createContext<PetsContextObj>({} as PetsContextObj);
@@ -25,6 +26,7 @@ type PetsContextProviderProps = {
 export const PetsContextProvider = ({ children }: PetsContextProviderProps) => {
   const [pets, setPets] = useState<PetsType>([] as PetsType);
   const [filteredPets, setFilteredPets] = useState<PetsType>([] as PetsType);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const fetchPets = async (): Promise<void> => {
     const response: Response = await axios.get('https://pet-finder-ts-tdd-server-production.up.railway.app/pets');
@@ -35,6 +37,12 @@ export const PetsContextProvider = ({ children }: PetsContextProviderProps) => {
   useEffect(() => {
     fetchPets();
   }, []);
+
+  useEffect(() => {
+    if (pets.length !== 0) {
+      setIsLoading(false);
+    }
+  }, [pets]);
 
   const updateFavorite = (id: number, isFavoriteUpdate: boolean): void => {
     const updatePets = [...pets];
@@ -49,6 +57,7 @@ export const PetsContextProvider = ({ children }: PetsContextProviderProps) => {
     filteredPets: filteredPets,
     setFilteredPets: setFilteredPets,
     updateFavorite: updateFavorite,
+    isLoading: isLoading,
   };
 
   return <PetsContext.Provider value={contextValue}>{children}</PetsContext.Provider>;

@@ -1,6 +1,9 @@
-import { screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { selectFilters, clickFavoriteCardButton } from '../setupTest';
 import { setupMSWServer } from '../setupTest';
+import { PetsContext } from '../../context/PetsContext';
+import { Pets } from './Pets';
+import { contextValue } from '../setupTest';
 
 setupMSWServer();
 
