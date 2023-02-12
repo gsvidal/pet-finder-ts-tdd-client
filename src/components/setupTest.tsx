@@ -12,12 +12,13 @@ import { CardProps } from './Card/Card';
 // Setup context provider mock:
 const mockFn = jest.fn();
 
-const contextValue: PetsContextObj = {
+export const contextValue: PetsContextObj = {
   pets: pets,
   setPets: mockFn,
   filteredPets: pets,
   setFilteredPets: mockFn,
   updateFavorite: mockFn,
+  isLoading: true,
 };
 
 type PetsContextProviderMockProps = {

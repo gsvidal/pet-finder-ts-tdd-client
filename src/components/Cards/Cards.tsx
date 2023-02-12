@@ -3,17 +3,15 @@ import { PetsContext } from '../../context/PetsContext';
 import { Card } from '../Card/Card';
 import { CardProps } from '../Card/Card';
 import './Cards.style.scss';
+import { Loader } from '../Loader/Loader';
 
 export const Cards = (): JSX.Element => {
-  const { filteredPets } = useContext(PetsContext);
+  const { pets, filteredPets, isLoading } = useContext(PetsContext);
 
   return (
     <div className="cards">
-      {filteredPets.length !== 0 ? (
-        filteredPets.map((pet: CardProps) => <Card {...pet} key={pet.id} />)
-      ) : (
-        <p className="empty">Not pets found with current filters</p>
-      )}
+      {isLoading ? <Loader /> : filteredPets.map((pet: CardProps) => <Card {...pet} key={pet.id} />)}
+      {filteredPets.length === 0 && pets.length !== 0 && <p className="message">Not pets found with current filters</p>}
     </div>
   );
 };
