@@ -1,9 +1,9 @@
-# Pet Adoption Center App (Frontend)
+# Pet Adoption Center App (Frontend) [Checkout the deployed app!](https://pet-finder-ts-tdd-client-production.up.railway.app/)
 
 ### In case you want to [checkout the Pet Adoption Center (Backend)](https://github.com/gsvidal/pet-finder-ts-tdd-server)
 
-<a href="">
-  <img src="" width="700">
+<a href="https://pet-finder-ts-tdd-client-production.up.railway.app/">
+  <img src="https://i.postimg.cc/R0v3hS2M/ezgif-com-optimize.gif" width="700">
 </a> 
 
 ### An app where users can like and filter pet cards according to their favorite, gender, or animal type status.
