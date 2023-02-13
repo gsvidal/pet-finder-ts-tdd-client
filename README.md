@@ -1,6 +1,8 @@
-# Pet Adoption Center App (Frontend) [Checkout the deployed app!](https://pet-finder-ts-tdd-client-production.up.railway.app/)
+# Pet Adoption Center App (Frontend)
 
 ### In case you want to [checkout the Pet Adoption Center (Backend)](https://github.com/gsvidal/pet-finder-ts-tdd-server)
+
+### [Checkout the deployed app!](https://pet-finder-ts-tdd-client-production.up.railway.app/)
 
 <a href="https://pet-finder-ts-tdd-client-production.up.railway.app/">
   <img src="https://i.postimg.cc/R0v3hS2M/ezgif-com-optimize.gif" width="700">
