@@ -4,12 +4,18 @@
 
 .app-bg {
   width: 100vw;
-  height: 150vh;
+  height: 280vh;
   position: absolute;
   z-index: -1;
   background: url('./assets/icons/bg-dog.svg') center/25%;
   background-repeat: repeat;
   opacity: 0.05;
+  @media (min-width: 910px) {
+    height: 180vh;
+  }
+  @media (min-width: 1210px) {
+    height: 130vh;
+  }
 }
 
 .app-title {
