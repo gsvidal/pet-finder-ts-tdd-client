@@ -17,16 +17,16 @@ export const pets: CardProps[] = [
   },
   {
     id: 2,
-    name: 'Ethan',
+    name: 'Princesa',
     phone: '999534222',
-    email: 'ethan@hotmail.com',
+    email: 'princesa@hotmail.com',
     image: {
-      url: 'https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGRvZ3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
-      alt: 'beautiful cat',
+      url: 'https://i.postimg.cc/h48jfsQZ/princesa.png',
+      alt: 'beautiful 3 legged dog',
     },
     isFavorite: true,
-    color: 'gold',
-    gender: 'male',
+    color: 'white',
+    gender: 'female',
     animalType: 'dog',
   },
   {

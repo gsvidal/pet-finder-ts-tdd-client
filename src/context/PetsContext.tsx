@@ -1,6 +1,6 @@
-import { useState, useEffect, createContext } from 'react';
-import { CardProps } from '../components/Card/Card';
-import axios from 'axios';
+import { useState, useEffect, createContext } from "react";
+import { CardProps } from "../components/Card/Card";
+import axios from "axios";
 
 type PetsType = CardProps[];
 
@@ -23,13 +23,15 @@ type PetsContextProviderProps = {
   children: JSX.Element[];
 };
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 export const PetsContextProvider = ({ children }: PetsContextProviderProps) => {
   const [pets, setPets] = useState<PetsType>([] as PetsType);
   const [filteredPets, setFilteredPets] = useState<PetsType>([] as PetsType);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const fetchPets = async (): Promise<void> => {
-    const response: Response = await axios.get('http://localhost:4000/pets');
+    const response: Response = await axios.get(`${apiUrl}/pets`);
     setPets(response.data);
     setFilteredPets(response.data);
   };
@@ -60,5 +62,7 @@ export const PetsContextProvider = ({ children }: PetsContextProviderProps) => {
     isLoading: isLoading,
   };
 
-  return <PetsContext.Provider value={contextValue}>{children}</PetsContext.Provider>;
+  return (
+    <PetsContext.Provider value={contextValue}>{children}</PetsContext.Provider>
+  );
 };
