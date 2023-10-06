@@ -55,6 +55,6 @@
 
 - Git clone the project: `git@github.com:gsvidal/pet-finder-ts-tdd-client.git`
 
-- Run `npm install` or `yarn add` to download and install all the dependencies.
+- Run `npm install` or `yarn install` to download and install all the dependencies.
 
 - At main branch: Run `npm run start` to start dev server
