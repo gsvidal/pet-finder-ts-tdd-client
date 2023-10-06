@@ -25,7 +25,7 @@
 <img src="https://testing-library.com/img/octopus-64x64.png" alt="React Testing Library Logo" width="50" height="50"/>
 <img src="https://github.com/devicons/devicon/blob/master/icons/sass/sass-original.svg" alt="Sass Logo" width="50" height="50"/>
 <img src="https://github.com/devicons/devicon/blob/master/icons/npm/npm-original-wordmark.svg" alt="npm Logo" width="50" height="50"/>
-<img src="https://railway.app/brand/logotype-light.svg" alt="Railway Logo" width="100" height="50"/>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABiklEQVR4Ae1WgUZEQRRdgP6iAAEFWlDRm3kAlUCUQKuKhFVYELBUAUhEIWwRvL13+5AAbG/u9gsBlPPstWOjXs16ln2XA8fM3DMzd+aeShll/BZV15oyjtas40sr9GAdt75B2tsYa1171Th66mM/49KOGXBc/1Ny6zqbVujdCn/+BCN0no0XOvW4W3BGuDbg+Dl/cqEznVi4AOx8KMmHcXQfCR9Zod1hRELVLFkvmUNCIHK0BC7qJrPKmZRsrjvHsXuqX83by0ylqEDB+TuPuzwdtl6yaIVuMqS0l2MCX6kA4/guJPm/agBPzSuk4+IFOH70TuAgVMBKj+aN40YGoY1AAeFRuAAjyYIVagKx8FaggPAamDwB+CWt0AVgUt6ZvCJEf0CTAmLh9bII801wfA3EwsuhAtCW4Q0A6zqHlbEPeDg1EDAT2lKVw9+uP5xyIzUkMI/endXAoZd7ddHoc03l8MYDLNnYCeA6BgJ6ZHAyymlLRWNRTn84vHPltOCwhlFO6GQ4XxllfAG7WqXJbe+TdQAAAABJRU5ErkJggg==" alt="Render Logo" width="100" height="50"/>
 
 
 <br />
@@ -46,7 +46,7 @@
 
 - Responsive design.
 
-- Deployed with Railway.
+- Deployed in [Render.com](https://render.com/) 
 
 
 <br />
